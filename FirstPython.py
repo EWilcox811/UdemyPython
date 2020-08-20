@@ -33,30 +33,30 @@ name = 'Sam'
 age = 3
 print(f'\n{name} is {age} years old.')
 
-#Lists - ordered sequences that can hold a variety of objects
-#      - use [] brackets and commas to separate objects in the Lists
-#      - similar to strings, Lists support indexing and slicing.
-#        Lists can be nested and have a variety of useful methods that can be called off of them.
+# Lists - ordered sequences that can hold a variety of objects
+#       - use [] brackets and commas to separate objects in the Lists
+#       - similar to strings, Lists support indexing and slicing.
+# Lists can be nested and have a variety of useful methods that can be called off of them.
 myList = [1,2,3]
-#        Lists do not have to be all one type, can be mixed objects.
+# Lists do not have to be all one type, can be mixed objects.
 len(myList)
 myList[0]
 myList[1:]
 anotherList = [4,5]
 myList + anotherList
-#        Unlike strings, you can change the elements.
+# Unlike strings, you can change the elements.
 myList[0] = 'one'.upper()
 print(f'\nMy List: {myList}')
 myList = myList + anotherList
 myList.append('Six')#append method adds an item to the end of the list.
 myList.append(7)
 print(f"\nMy List after appends: {myList}")
-#        Popping an item from a list will by default give you the last item in the list.
-#        However you can put an index in the pop method and it will pop out the desired object.
-#        When popping an item it does remove it from the list.
+# Popping an item from a list will by default give you the last item in the list.
+# However you can put an index in the pop method and it will pop out the desired object.
+# When popping an item it does remove it from the list.
 print(f'\nItem popped from myList:\t{myList.pop(0)}')
 print(f'\nmyList after the pop:\n{myList}')
-#        Sort and Reverse
+# Sort and Reverse
 newList = ['a','e','x','b','c']
 numList = [4,1,8,3]
 print(f'\n\nUnsorted list of chars:\t\t{newList}')
@@ -66,3 +66,11 @@ numList.sort()
 print(f'\nSorted list of chars:\t\t{newList}')
 print(f'\nSorted list of integers:\t{numList}')
 print('\n\n')
+# sort method is an in place method so you cannot assign it to a new list
+# because it doesn't return anything that can be assigned to a variable.
+# reverse is the same way, it is in place and doesn't return anything that can
+# be assigned to a variable
+newList.reverse()
+numList.reverse()
+print(f'Reverse list of chars:\t\t{newList}')
+print(f'\nReverse list of integers:\t{numList}')
