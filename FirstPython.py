@@ -74,3 +74,39 @@ newList.reverse()
 numList.reverse()
 print(f'Reverse list of chars:\t\t{newList}')
 print(f'\nReverse list of integers:\t{numList}')
+# basics of lists completed most important methods
+#       append, pop, sort, reverse
+
+# Dictionaries
+# unordered mappings for storing objects.
+# uses a key value pairing instead of indexing like lists.
+# allows the useer to quickly grab objects without needing to know an index location.
+# When should you use a list or dictionary?
+# Dictionaries when you need to quickly retrieve a value without knowing its indexing
+# Lists can retrieve objects off location and can be ordered/nSorted
+myDict = {'key1':'value1', 'key2':'value2'}
+myDict['key1']
+priceLookup = {'apple':2.99, 'oranges':1.99, 'milk':5.80}
+print('\n\nDictionary use:\n')
+print(f'Dictionary:\t{priceLookup}\n')
+#assigning cost to variables
+appleCost = priceLookup['apple']
+orangeCost = priceLookup['oranges']
+milkCost = priceLookup['milk']
+#printing costs of each individual item.
+print(f'Price of an apple:\t\t${appleCost:1.2f}')
+print(f'\nPrice of an orange:\t\t${orangeCost:1.2f}')
+print(f'\nPrice of a carton of milk:\t${milkCost:1.2f}')
+
+# Dictionaries can also hold lists or even other dictionaries.
+d = {'k1' : 123, 'k2' : [0,1,2], 'k3':{'insideKey':100}}
+#test
+d2 = {'key1':[1,5,3,4,7,2]}
+sortedList = d2['key1'].sort() #assignment doesn't work because sort is an in place method
+sortedList = d2['key1']#this assignment assigns the sorted list succesfully
+print(f'\nSorted list from dictionary d2:\t{sortedList }\n')
+
+#useful dictionary methods
+print(f'\n{d.keys()}')#returns the keys
+print(f'\n{d.values()}')#returns the values
+print(f'\n{d.items()}')#returns the 'key':value pairs
