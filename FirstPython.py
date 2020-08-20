@@ -110,3 +110,27 @@ print(f'\nSorted list from dictionary d2:\t{sortedList }\n')
 print(f'\n{d.keys()}')#returns the keys
 print(f'\n{d.values()}')#returns the values
 print(f'\n{d.items()}')#returns the 'key':value pairs
+
+# Tuples in Python
+# Similar to lists but with the key difference of immutability.
+# Once an element is inside of a tuple it can not be reassisgned
+
+t = (1,2,3)
+myList = [1,2,3]
+
+print(type(t))
+print(type(myList))
+
+print(len(t))
+
+print(t[0])# tuples support indexing
+print(t[::-1])# they also support slicing, this prints a reverse of the tuple.
+# The count method will tell you how many times a specific item occurs in your tuples
+tup = (1,1,1,2,2,2,2,3,3,4,5)
+print(tup.count(2))# prints out 4
+# The index method will tell you at what index an item first occurs in the tuple
+print(tup.index(3))# prints out 7
+print(tup.index(1))# prints out 0
+# Tuple immutability
+# tup[0] = 'new' this doesn't work because it is immutable and you can't reassign the object
+# great for data integrity.
