@@ -134,3 +134,21 @@ print(tup.index(1))# prints out 0
 # Tuple immutability
 # tup[0] = 'new' this doesn't work because it is immutable and you can't reassign the object
 # great for data integrity.
+
+# Sets
+# Unordered collection of unique elements
+mySet = set()
+mySet.add(1)
+print(mySet)
+mySet.add(2)
+mySet.add(2)# won't be added to the set because it is already there.
+myList = [1,1,1,1,1,2,2,2,3,3,3,3]
+print(f'List before casting to set:\n{myList}\nAfter being cast to a set: ')
+print(set(myList))# cast the list as a set to obtain the unique items.
+
+# Booleans
+# operators that convey true or false statements
+# great for control flow and logic
+type(False) #return bool
+print(1 > 2) # prints False
+print(1==1) # prints true
