@@ -152,3 +152,31 @@ print(set(myList))# cast the list as a set to obtain the unique items.
 type(False) #return bool
 print(1 > 2) # prints False
 print(1==1) # prints true
+
+# File I/O basics
+myFile = open('test')
+print(myFile.read())# once completed the cursor is at the end of the File
+myFile.seek(0)# resets the cursor to the beginning of the file
+contents = myFile.read()
+myFile.seek(0)
+contentsList = myFile.readlines()# will return the contents of the file as a list if there is more than one line.
+# you can open a file from anywhere on your computer you just have to include the entire file path in the .open()
+# remember to close the file when you are finished with it.
+myFile.close()
+#use with as to avoid errors
+with open('test') as myNewFile:
+    contents = myNewFile.read()#no need to close the file when using with as
+    print(contents)
+# write to files and overwrite files
+with open('test', mode = 'r') as myFile:
+    contents = myFile.read()
+# if you change the mode to w it will write and overwrite files that already exist
+# changing the mode to a will append to the end of an existing file.
+with open('test', mode = 'a') as f:
+    f.write('\nSecond on Second')
+with open('myNewFile.txt', mode = 'w') as f:
+    f.write("This is a new file created in Python.\nThis is the second line in the new File.")
+with open('test') as r:
+    print(r.read())
+with open('myNewFile.txt', mode = 'r') as f:
+    print(f.read())
