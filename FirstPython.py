@@ -183,4 +183,72 @@ with open('myNewFile.txt', mode = 'r') as f:
 # Chaining comparison with and without the keywords and, or, not
 print(1<2<3)# prints true
 print(1<2>3)# prints False
+# from this point on installed the hydrogen package and ipykernel and will no longer need to use print
 x=1
+x
+'h'=='h' and 2==2
+1==1 or 2==2
+100==1 or 2==2
+# Using the keywords help with the readability of the code and is better than not using it
+# The not operator returns you the opposite boolean. Useful for control flow
+not (1==1)
+
+# If, elif, else statements
+# control flow syntax in python makes use of colons and whitespace easily readible and prototyped
+# if condition:
+#     run this code
+# else:
+#     run this code
+if (3<2):
+    print('It\'s True')
+elif (3>2):
+    print('Now it is True')
+else:
+    print('It\'s False')
+name = 'Sammy'
+if name == 'Frankie':
+    print('Frankie')
+elif name == 'Sammy':
+    print('Hello Sammy')
+else:
+    print('What is your name?')
+
+# For loops, used with iterable objects such as iterating through every character in a String
+
+myIterable = [1,2,3,4,5,6,7,8,9,10]
+for numbers in myIterable:
+    print(numbers)
+for numbers in myIterable:
+    if (numbers % 2 ==0):
+        print(f'Even Number:{numbers}')
+    else:
+        print(f'Odd Number:{numbers}')
+
+# Tuple unpacking
+myList = [(1,2),(3,4),(5,6)]
+for (a,b) in myList:
+    print(a)
+    print(b)
+# If not unpacked, it will print the tuples themselves
+for tup in myList:
+    print(tup)
+# Iterating through a Dictionary.  You can do the same unpacking as a Tuple.
+d = {'k1':1, 'k2':2, 'k3':3}
+for item in d.items():
+    print (item)
+for key,value in d.items():
+    print(f'Key = {key} \tValue = {value}')
+
+# While loops, continually execute while some condition is true
+# while someBooleanCondition:
+#     do something
+# while loops in python can be combined with else statements
+# while someBooleanCondition:
+#     do something
+# else:
+#     do something different
+x=0
+while x<=5:
+    print(f'Current value of x = {x}')
+    x += 1
+    
