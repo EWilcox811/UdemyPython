@@ -180,3 +180,7 @@ with open('test') as r:
     print(r.read())
 with open('myNewFile.txt', mode = 'r') as f:
     print(f.read())
+# Chaining comparison with and without the keywords and, or, not
+print(1<2<3)# prints true
+print(1<2>3)# prints False
+x=1
