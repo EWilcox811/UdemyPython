@@ -251,4 +251,92 @@ x=0
 while x<=5:
     print(f'Current value of x = {x}')
     x += 1
-    
+# keywords break, continue and pass
+# break: breaks out of the current closest encosing loop
+# continue: Goes to the top of the closest enclosing loop
+# pass: Does nothing at all
+x = [1,2,3]
+for item in x:
+    pass #used to avoid syntax error as a place holder if you want to come back to this
+# continue
+myString = 'Sammy'
+for letter in myString:
+    if letter == 'a':
+        continue #when we hit the letter 'a' it will go back to the top of the loop and not print out 'a'
+    print(letter)
+# break
+for letter in myString:
+    if letter == 'a':
+        break #when we hit the letter 'a' it will break out of the loop
+    print(letter)
+x = 0
+while x<5:
+    if x==2:
+        break #when x = 2 it will break out of the loop and only print 0 and 1
+    print(x)
+    x+=1
+
+# Useful operator in python
+# range function
+mylist = [1,2,3]
+for num in range(10):# range(start, stop, step) is a generator
+    print (num)
+# when range is casted to a list it will generate the list
+# the stop argument in range(start,stop,step) is non inclusive
+mylist = list(range(0,11,2))
+mylist #mylist is [0,2,4,6,8,10]
+
+# enumerate
+indexCount = 0
+for letter in 'abcde':
+    print(f'At index {indexCount} the letter is {letter}.')
+    indexCount+=1
+# such a common operation that enumerate can replicate this
+indexCount = 0
+word = 'abcde'
+for item in enumerate(word):#this will print out tuples of word with the (index, letter)
+    print(item)
+#this can be unpacked using tuple unpacking
+for index,letter in enumerate(word):
+    print(f'Letter {letter} is at index {index}')
+
+# zip function will zip together multiple lists.  It will only zip together as many elements as the smallest list
+# the lists are zipped together in the form of tuples.
+firstList = list(range(1,6))
+secondList = ['a','b','c','d','e']
+thirdList = list(range(7,10))
+zip(firstList, secondList)
+for ite in zip(firstList, secondList, thirdList):# because third list only has 3 items, only 3 tuples are returned
+    print(ite)
+# if you just want the list you can cast it to list
+zippedList = list(zip(firstList,secondList,thirdList))
+zippedList
+
+# in operator can be used to check if an item is in an iterable item ie list, string, dictionary...
+'a' in 'a world'
+'mykey' in {'mykey':345}
+d = {'mykey':345}
+345 in d.values()
+345 in d.keys()
+
+# mathematical library, min, max, random
+x = list(range(0,101,10))
+x
+min(x)
+max(x)
+
+from random import shuffle
+shuffle(x)#shuffle is an in palce function and returns nothing and only affects the list passed into it.
+x
+x.sort()# puts list back in numerical order
+x
+shuffle(x)
+x
+x.sort()
+
+from random import randint
+randint(0,100)
+
+# excepting user input
+result = float(input('Enter a number here: ')) # be careful because everything is saved as a string must be cast to be an actual number
+result
