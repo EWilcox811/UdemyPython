@@ -391,3 +391,38 @@ mylist
 # same as
 mylist = [x*y for x in [2,4,6] for y in [1,10,100]]
 mylist
+
+# Python statements assessment test
+
+st = 'Print out only the words that start with s in this sentence'
+list = st.split()
+list
+for word in list:
+    if word[0]=='s':
+        print (word)
+for num in range(0,11):
+    if num%2 == 0:
+        print(num)
+
+divThreeList = [num for num in range(1,51) if num%3 == 0]
+divThreeList
+
+st = 'Print ever word in this sentence that has an even number of letters'
+stList = st.split()
+for word in stList:
+    if(len(word)%2==0):
+        print('even!')
+
+for num in range(1,101):
+    if(num%3==0 and num%5==0):
+        print('FizzBuzz')
+    elif(num%3==0):
+        print('Fizz')
+    elif(num%5==0):
+        print('Buzz')
+    else:
+        print(num)
+
+st = 'Create a list of the first letters of every word in this string'
+firstLetters = [word[0] for word in st.split()]
+firstLetters
