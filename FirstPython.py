@@ -395,9 +395,7 @@ mylist
 # Python statements assessment test
 
 st = 'Print out only the words that start with s in this sentence'
-list = st.split()
-list
-for word in list:
+for word in st.split():
     if word[0]=='s':
         print (word)
 for num in range(0,11):
@@ -407,9 +405,8 @@ for num in range(0,11):
 divThreeList = [num for num in range(1,51) if num%3 == 0]
 divThreeList
 
-st = 'Print ever word in this sentence that has an even number of letters'
-stList = st.split()
-for word in stList:
+st = 'Print every word in this sentence that has an even number of letters'
+for word in st.split():
     if(len(word)%2==0):
         print('even!')
 
