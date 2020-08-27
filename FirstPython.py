@@ -340,3 +340,54 @@ randint(0,100)
 # excepting user input
 result = float(input('Enter a number here: ')) # be careful because everything is saved as a string must be cast to be an actual number
 result
+
+#list comprehension
+
+mystring = 'hello'
+mylist = []
+
+for letter in mystring:
+    mylist.append(letter)
+mylist
+
+# more efficient way aka less code not less memory
+mylist = [letter for letter in mystring]
+mylist
+# mylist = ['element' for 'element' in 'some string or iterable object']
+# this is the same as running a for loop to append the elements in the iterable object to a list
+# can also be used to create a list of numbers withing a certain range
+mylist = [x for x in range(0,11)]
+mylist
+
+# you can even begin to perform operations on the variable as you append it to the list
+# i.e. appending the square of all the numbers in a range
+
+mylist = [num**2 for num in range(0,11)]
+mylist
+
+# can also add in if statements to the assignment statements
+# i.e. grabbing the even numbers in a range
+
+mylist = [num for num in range(0,11) if num%2 == 0] #this will only append to the list if True
+mylist
+
+# more complex arithmetic
+celsius = [0,10,20,34.5]
+fahrenheit = [((9/5)*temp + 32) for temp in celsius]
+fahrenheit
+
+# you can do if else chains in the assignment but it can become an ugly one liner
+# don't do this hurts code readability
+results = [x if x%2 ==0 else 'ODD' for x in range(0,11)]
+results
+# UGLY
+
+# you can also do nested loops in a list comprehension but also can become quite complicated and hard to read
+mylist = []
+for x in [2,4,6]:
+    for y in [100,200,300]:
+        mylist.append(x*y)
+mylist
+# same as
+mylist = [x*y for x in [2,4,6] for y in [1,10,100]]
+mylist
