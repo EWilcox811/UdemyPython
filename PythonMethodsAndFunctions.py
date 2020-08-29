@@ -137,3 +137,85 @@ def my_func(*args, **kwargs):
 my_func(10, 20, 30, fruit = 'orange', food = 'eggs', animal = 'dogs')
 
 # This lets you take in an arbitrary amount of arguments and keyword arguments.
+
+def myfunc(mystring):
+    newstring = ''
+    x=0
+    while x < len(mystring):
+        if x%2==0:
+            newstring = newstring + mystring[x].lower()
+            x+=1
+        else:
+            newstring = newstring + mystring[x].upper()
+            x+=1
+    return newstring
+
+myfunc('Anthropomorphism')
+
+# FUNCTIONS PRACTICE PROBLEMS
+# WARMUP
+def lesser_of_two_evens(a,b):
+    if a%2 == 0 and b%2 == 0:
+        if a < b:
+            return a
+        else:
+            return b
+    else:
+        if a > b:
+            return a
+        else:
+            return b
+lesser_of_two_evens(2,4)
+lesser_of_two_evens(2,5)
+
+# ANIMAL CRACKERS: Write a function takes a two-word string and returns True if both words begin with same letter
+def animal_crackers(text):
+    list = [word[0] for word in text.split()]
+    if list[0].lower() == list[1].lower():
+        return True
+    else:
+        return False
+animal_crackers("Levelheaded Llama")
+animal_crackers('Crazy Kangaroo')
+
+# MAKES TWENTY: Given two integers, return True if the sum of the integers is 20 or if one of the integers is 20. If not, return False
+def makes_twenty(a,b):
+    if a==20 or b==20:
+        return True
+    elif sum((a,b)) == 20:
+        return True
+    else:
+        return False
+makes_twenty(20,10)
+makes_twenty(2,3)
+makes_twenty(5,15)
+makes_twenty(25, -5)
+
+# LEVEL 1 PROBLEMS
+# OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name
+# old_macdonald('macdonald') --> MacDonald
+def old_macdonald(name):
+    newName = ''
+    x = 0
+    while x < len(name):
+        if x==0 or x==3:
+            newName = newName + name[x].upper()
+            x += 1
+        else:
+            newName = newName + name[x]
+            x+=1
+            pass
+
+    return newName
+old_macdonald('macdonald')
+
+# MASTER YODA: Given a sentence, return a sentence with the words reversed
+# master_yoda('I am home') --> 'home am I'
+# master_yoda('We are ready') --> 'ready are We'
+def master_yoda(text):
+    mylist = text.split()
+    mylist.reverse()
+    reversed_string = " ".join(mylist)
+    return reversed_string
+master_yoda('I am home')
+master_yoda('we are ready')
