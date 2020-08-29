@@ -108,3 +108,32 @@ shuffled_list = shuffle_list(startlist)
 guess = player_guess()
 # Guess Check
 check_guess(shuffled_list, guess)
+
+# *args and **kwargs, stands for arguments and keyword arguments
+def my_func(a, b):
+    '''
+    returns 5% of the sum of a and b
+    '''
+    return sum((a,b)) * 0.05
+my_func(40,60)
+# when a function parameter starts with * it allows for as many numbers as you want to pass in and encases them in a tuple
+
+def my_func(*args):
+    return sum((args)) * 0.05
+my_func(5,5,5,5,5,5,5,5,5,5)
+
+def kwargs_func(**kwargs):
+    if 'fruit' in kwargs:
+        print('My fruit of choice is {}'.format(kwargs['fruit']))
+    else:
+        print('I did not find any fruit here.')
+# Parameters that start with ** will return them as a dictionary
+
+kwargs_func(fruit = 'apple', veggie = 'lettuce')
+
+# using both
+def my_func(*args, **kwargs):
+    print('I would like {} {}'.format(args[0], kwargs['food']))
+my_func(10, 20, 30, fruit = 'orange', food = 'eggs', animal = 'dogs')
+
+# This lets you take in an arbitrary amount of arguments and keyword arguments.
