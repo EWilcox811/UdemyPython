@@ -72,3 +72,39 @@ def employee_check(work__hours_list):
 name,hours = employee_check(work_hours)
 
 print(f'The employee of the month is {name} with {hours} hours!')
+
+# create a few functions to mimic three cup monte
+example = [1,2,3,4,5,6,7]
+from random import shuffle
+shuffle(example)
+example
+
+def shuffle_list(myList):
+    shuffle(myList)
+    return myList
+result = shuffle_list(example)
+result
+
+def player_guess():
+    guess = ''
+    while guess not in ['0', '1', '2']:
+        guess = input('Pick a number 0, 1, or 2: ')
+    return int(guess)
+
+def check_guess(mylist, guess):
+    if mylist[guess] == 'O':
+        print("Correct")
+    else:
+        print("Wrong guess!")
+        print(mylist)
+
+# Now for the actual logic behind the game
+
+# Initial List
+startlist = ['','O','']
+# Mixed up list
+shuffled_list = shuffle_list(startlist)
+# USER GUESS
+guess = player_guess()
+# Guess Check
+check_guess(shuffled_list, guess)
