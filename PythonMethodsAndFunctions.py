@@ -219,3 +219,131 @@ def master_yoda(text):
     return reversed_string
 master_yoda('I am home')
 master_yoda('we are ready')
+
+# ALMOST THERE: Given an integer n, return True if n is within 10 of either 100
+# or 200
+def almost_there(n):
+    if(abs(100-n) <= 10 or abs(200-n)<=10):
+        return True
+    else:
+        return False
+
+almost_there(90)
+almost_there(104)
+almost_there(150)
+almost_there(209)
+
+# LEVEL 2 PROBLEMS
+
+# FIND 33: given a list of integers return true if the array contains a 3 next to a 3 somewhere
+
+def find_33(nums):
+    x=0
+    while x<(len(nums)-1):
+        if(nums[x] == 3 and nums[x+1] == 3):
+            return True
+        else:
+            pass
+        x = x+1
+    return False
+find_33([1,3,3])
+find_33([1,3,1,3])
+find_33([3,1,3])
+
+# PAPER DOLL: Given a string, return a string where for every character in the
+# original there are three characters
+def paper_doll(text):
+    newString = ""
+    for letter in text:
+        newString = newString + (letter*3)
+    return newString
+paper_doll("hello")
+paper_doll("Mississippi")
+
+# BLACKJACK: Given three integers between 1 and 11, if there sum is less than or equal
+# 21, return their sum. If their sum exceeds 21 and there's an eleven, reduce the total
+# sum by 10. Finally if the sum(even after adjustment) exceeds 21, return Bust
+
+def blackjack(a,b,c):
+    total = a + b + c
+    if ((a == 11 or b == 11 or c == 11) and (total > 21)):
+        total -= 10
+        if(total > 21):
+            return "Bust"
+        else:
+            return total
+    elif(total > 21):
+        return "Bust"
+    else:
+        return total
+blackjack(5,6,7)
+blackjack(9,9,9)
+blackjack(9,9,11)
+
+# SUMMER OF 69: Return the sum of the numbers in the array, except ignore sections of
+# numbers starting with a 6 and extending to the next 9(every 6 will be followed by at least one 9)
+# Return 0 for no numbers
+
+def summer_69(arr):
+    summer = False
+    sum = 0
+    for num in arr:
+        if num==9:
+            summer = False
+            pass
+        elif num == 6:
+            summer = True
+            pass
+        elif((num != 6 or num != 9)and summer == False):
+            sum += num
+    return sum
+summer_69([1,3,5])
+summer_69([4,5,6,7,8,9])
+summer_69([2,1,6,9,11])
+
+# CHALLENGING PROBLEMS
+
+# SPY GAME: Write a function that takes in a list of integers and returns True if
+# it contains 007 in order
+
+def spy_game(nums):
+    x = 0
+    spyCount = 0
+    while x<len(nums):
+        if nums[x]==0 and spyCount < 2:
+            spyCount+=1
+            x+=1
+        elif nums[x]==7 and spyCount==2:
+            spyCount+=1
+            x+=1
+        else:
+            x+=1
+    if spyCount==3:
+        return True
+    else:
+        return False
+spy_game([1,2,4,0,0,7,5])
+spy_game([1,0,2,4,0,5,7])
+spy_game([1,7,2,0,4,5,0])
+
+# COUNT PRIMES: Write a function that return the number of prime numbers that exist up to and including a given numbers
+
+def count_primes(num):
+    primesCount = 0
+    notPrime = 0
+    numlist = list(range(2,(num+1)))
+    for number in numlist:
+        for i in range(2,number+1):
+            if(number % i ==0 and i != number):
+                notPrime += 1
+            elif i==number and notPrime==0:
+                primesCount+=1
+        notPrime = 0
+    return primesCount
+count_primes(100)
+
+# PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter
+def print_big(char):
+    d = {'a':'  *  \n * * \n*****\n*   *\n*   *', 'b':'*\n*\n*****\n*   *\n*****'}
+    print(d.get(char))
+print_big('a')
