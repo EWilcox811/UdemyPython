@@ -156,25 +156,16 @@ myfunc('Anthropomorphism')
 # WARMUP
 def lesser_of_two_evens(a,b):
     if a%2 == 0 and b%2 == 0:
-        if a < b:
-            return a
-        else:
-            return b
+        return min(a,b)
     else:
-        if a > b:
-            return a
-        else:
-            return b
+        return max(a,b)
 lesser_of_two_evens(2,4)
 lesser_of_two_evens(2,5)
 
 # ANIMAL CRACKERS: Write a function takes a two-word string and returns True if both words begin with same letter
 def animal_crackers(text):
     list = [word[0] for word in text.split()]
-    if list[0].lower() == list[1].lower():
-        return True
-    else:
-        return False
+    return list[0].lower() == list[1].lower()
 animal_crackers("Levelheaded Llama")
 animal_crackers('Crazy Kangaroo')
 
@@ -223,10 +214,7 @@ master_yoda('we are ready')
 # ALMOST THERE: Given an integer n, return True if n is within 10 of either 100
 # or 200
 def almost_there(n):
-    if(abs(100-n) <= 10 or abs(200-n)<=10):
-        return True
-    else:
-        return False
+    return abs(100-n) <= 10 or abs(200-n)<=10
 
 almost_there(90)
 almost_there(104)
@@ -266,7 +254,7 @@ paper_doll("Mississippi")
 
 def blackjack(a,b,c):
     total = a + b + c
-    if ((a == 11 or b == 11 or c == 11) and (total > 21)):
+    if (11 in [a,b,c] and (total > 21)):
         total -= 10
         if(total > 21):
             return "Bust"
@@ -307,21 +295,11 @@ summer_69([2,1,6,9,11])
 # it contains 007 in order
 
 def spy_game(nums):
-    x = 0
-    spyCount = 0
-    while x<len(nums):
-        if nums[x]==0 and spyCount < 2:
-            spyCount+=1
-            x+=1
-        elif nums[x]==7 and spyCount==2:
-            spyCount+=1
-            x+=1
-        else:
-            x+=1
-    if spyCount==3:
-        return True
-    else:
-        return False
+    code = [0,0,7, 'x']
+    for num in nums:
+        if num == code[0]:
+            code.pop(0)
+    return len(code) == 1
 spy_game([1,2,4,0,0,7,5])
 spy_game([1,0,2,4,0,5,7])
 spy_game([1,7,2,0,4,5,0])
@@ -329,17 +307,24 @@ spy_game([1,7,2,0,4,5,0])
 # COUNT PRIMES: Write a function that return the number of prime numbers that exist up to and including a given numbers
 
 def count_primes(num):
-    primesCount = 0
-    notPrime = 0
-    numlist = list(range(2,(num+1)))
-    for number in numlist:
-        for i in range(2,number+1):
-            if(number % i ==0 and i != number):
-                notPrime += 1
-            elif i==number and notPrime==0:
-                primesCount+=1
-        notPrime = 0
-    return primesCount
+    # Check for 0 or 1 entry
+    if(num < 2):
+        return 0
+    # 2 is a prime number and doesn't need to be checked.
+    primes = [2]
+    #counter going up to the input num
+    x = 3
+    # x is going through every number up to the input number
+    while x <= num:
+        # Check if x is prime
+        for y in range(3,x,2):
+            if x%y==0:
+                x+=2
+                break
+        else:
+            primes.append(x)
+            x+=2
+    return len(primes)
 count_primes(100)
 
 # PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter
