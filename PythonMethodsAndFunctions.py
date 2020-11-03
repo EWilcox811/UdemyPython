@@ -342,48 +342,37 @@ vol(2)
 
 # write a function that checks whether a number is in a given range (inclusive of high and low)
 def ran_check(num, low, high):
-    if num in range(low-1, high):
-        return True
-    else:
-        return False
+    return num in range(low, high+1)
 ran_check(5,2,7)
 ran_check(3,1,10)
 
 # write a funciton that accepts a string and calculates the number of upper case letters and lower case
 def up_low(s):
-    uppercase = 0
-    lowercase = 0
+    d = {'upper':0, 'lower':0}
+    # uppercase = 0  converted to dictionary
+    # lowercase = 0
     x = 0
     while x < len(s):
         if s[x].isupper():
-            uppercase+=1
+            d['upper']+=1
             x+=1
         elif s[x].islower():
-            lowercase+=1
+            d['lower']+=1
             x+=1
         else:
             x+=1
             pass
     print(f'Original string : {s}')
-    print(f'No. of Upper case characters : {uppercase}')
-    print(f'No. of Lower case character : {lowercase}')
+    print(f'No. of Upper case characters : {d["upper"]}')
+    print(f'No. of Lower case character : {d["lower"]}')
 up_low('Hello Mr. Rogers, how are you this fine Tuesday?')
 
 # write a function that takes a list and returns a new list with unique elements of the first list
 def unique_list(lst):
-    uniqueList = []
-    x = 0
-    uniqueList.append(lst[0])
-    for num in lst:
-        if num == uniqueList[x]:
-            pass
-        else:
-            uniqueList.append(num)
-            x+=1
-    return uniqueList
+    return list(set(lst))
 unique_list([1,1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,5,5])
 
-# write a python function to multiply all the numbers in list
+ # write a python function to multiply all the numbers in list
 def multiply(numbers):
     product = 1
     for num in numbers:
@@ -393,10 +382,11 @@ multiply([1,2,3,-4])
 
 # write a function that checks whether a passed in string is a palindrome or not
 def palindrome(s):
+    s = s.replace(" ","")
     return s[::-1]==s
 palindrome('helleh')
 palindrome('hello')
-
+palindrome('nurses run')
 # write a python function to check whether a string is a pangram or not
 import string
 help(string) #used to learn different things I could use from the string module to complete the task.
@@ -411,4 +401,11 @@ def ispangram(str1, alphabet = list(string.ascii_lowercase)):# ascii_lowercase r
         else:
             pass
     return len(alphabet)==0
-ispangram("The quick brown fox jumps over the lazy dog")
+def ispangram2(str1, alphabet = set(string.ascii_lowercase)):
+    str1 = str1.replace(" ", "") # removes all spaces in the phrase
+    str1 = str1.lower() # makes all letters lowercase
+    str1 = set(str1) # converts to a set remove all duplicates
+    str1 = sorted(str1) # puts letters in alphabetical order
+    print(str1)
+    return str1 == alphabet
+ispangram2("The quick brown fox jumps over the lazy dog")
