@@ -165,7 +165,7 @@ class Account:
         self.balance += money
         return "Deposit Accepted"
     def withdraw(self, money):
-        if self.balance - money > 0:
+        if self.balance >= money:
             self.balance -= money
             return "Withdrawal Accepted"
         else:
