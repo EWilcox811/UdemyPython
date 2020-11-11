@@ -154,3 +154,26 @@ class Cylinder:
 c = Cylinder(2,3)
 c.volume()
 c.surface_area()
+
+# CHALLENGE
+
+class Account:
+    def __init__(self, owner = " ", balance = 0):
+        self.owner = owner
+        self.balance = balance
+    def deposit(self, money):
+        self.balance += money
+        return "Deposit Accepted"
+    def withdraw(self, money):
+        if self.balance - money > 0:
+            self.balance -= money
+            return "Withdrawal Accepted"
+        else:
+            print("EXCEEDS CURRENT BALANCE.\nCurrent balance is: {}".format(self.balance))
+    def __str__(self):
+        return "Account owner: " + self.owner+"\nAccount balance: $"+str(self.balance)
+acct1 = Account("Jose", 100)
+print(acct1)
+acct1.deposit(50)
+acct1.withdraw(75)
+acct1.withdraw(500)
