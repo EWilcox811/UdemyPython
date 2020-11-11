@@ -121,3 +121,36 @@ class Dog(Animal):
         return self.name + " says woof!"
 fido = Dog("fido")
 fido.speak()
+
+# OOP HOMEWORK AND CHALLENGE
+import math
+class Line:
+    def __init__(self, coor1, coor2):
+        self.coor1 = coor1
+        self.coor2 = coor2
+    def distance(self):
+        coor1x,coor1y = self.coor1
+        coor2x, coor2y = self.coor2
+        return math.sqrt((coor2x-coor1x)**2 + (coor2y-coor1y)**2)
+    def slope(self):
+        coor1x,coor1y = self.coor1
+        coor2x, coor2y = self.coor2
+        return (coor2y-coor1y)/(coor2x-coor1x)
+coordinate1 = (3,2)
+coordinate2 = (8,10)
+
+li = Line(coordinate1,coordinate2)
+li.distance()
+li.slope()
+
+class Cylinder:
+    def __init__(self, height=1, radius=1):
+        self.height = height
+        self.radius = radius
+    def volume(self):
+        return (math.pi * self.radius**2)*self.height
+    def surface_area(self):
+        return 2*(math.pi*self.radius*self.height)+self.volume()
+c = Cylinder(2,3)
+c.volume()
+c.surface_area()
