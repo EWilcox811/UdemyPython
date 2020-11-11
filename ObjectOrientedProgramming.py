@@ -1,12 +1,123 @@
+# class Dog():
+#     '''
+#     Class Object Attributes are defined before the __init__ method and are the same
+#     for every instance of the class.
+#     '''
+#     species = 'Mammal'
+#
+#
+#     '''
+#     self keyword connects method to this instance of the class
+#     Init is basically the constructor for the class and is called automatically when
+#     an object of the class is created.
+#     '''
+#     def __init__(self, breed, name, spots):
+#         self.breed = breed #String expected
+#         self.name = name #String expected
+#         self.spots = spots #boolean expected
+#     '''
+#     Methods are functions defined in the body of a class and are used to perform
+#     operations that sometimes utilize the attributes of the object that we created.
+#     '''
+#     def bark(self):
+#         print("WOOF! My name is {}.".format(self.name))
+#     pass
+# my_dog = Dog("German Shepherd", 'Toby', False)
+# type(my_dog)
+# my_dog.breed
+# my_dog.name
+# my_dog.spots
+# my_dog.species
+# my_dog.bark()
+
+
+class Circle():
+    # CLASS ATTRIBUTES
+    pi = 3.14
+
+    # Default values can be overwritten
+    def __init__(self, radius = 1):
+        self.radius = radius
+
+    # Method
+    def get_circumference(self):
+        return self.radius*self.pi*2
+
+my_circle = Circle()
+
+my_circle.pi
+my_circle.get_circumference()
+
+# '''
+# INHERITANCE AND POLYMORPHISM
+# '''
+class Animal():
+    def __init__(self):
+        print("Animal Created")
+    def who_am_i(self):
+        print("I am an animal")
+    def eat(self):
+        print("I am eating")
+# '''
+# Dog class will inherit from the base class Animal.
+# '''
+class Dog(Animal):
+    def __init__(self):
+        Animal.__init__(self)
+        print("Dog Created")
+    # Functions that are inheritted can be overwritten in the child class
+    def who_am_i(self):
+        print("I am a dog.")
+    # You can also create new functions in the child class that the parent class can't use
+    def bark(self):
+        print("WOOF!")
+
+mydog = Dog()
+mydog.who_am_i()
+mydog.bark()
+myanimal = Animal()
+# myanimal.bark() doesn't work
+
+# POLYMORPHISM
 class Dog():
-    '''
-    self keyword connects method to this instance of the class
-    Init is basically the constructor for the class and is called automatically when
-    an object of the class is created.
-    '''
-    def __init__(self, breed):
-        self.breed = breed
-    pass
-my_dog = Dog("German Shepherd")
-type(my_dog)
-my_dog.breed
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return self.name + " says woof!"
+class Cat():
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return self.name + " says meow!"
+niko = Dog("Niko")
+felix = Cat("Felix")
+print(niko.speak())
+print(felix.speak())
+
+for pet in [niko,felix]:
+    print(type(pet))
+    print(pet.speak())
+
+def pet_speak(pet):
+    print(pet.speak())
+
+pet_speak(niko)
+pet_speak(felix)
+# Becuase both classes, Dog and Cat, share a method with the same name we can use a funciton
+# or iterate through them as a list and call that method from both classes
+
+# INHERITANCE is usually used with an abstract class that is designed to never be instantiated but
+# to be used as a base class
+class Animal():
+    def __init__(self,name):
+        self.name = name
+
+    def speak(self):
+        raise NotImplementedError("Subclass must implement this abstract method!")
+fred = Animal("Fred")
+class Dog(Animal):
+
+    def speak(self):
+        return self.name + " says woof!"
+fido = Dog("fido")
+fido.speak()
