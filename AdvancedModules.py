@@ -125,7 +125,7 @@ pattern = 'phone'
 match = re.search(phone, text)
 match.span()
 match.start()
-match.group()
+print(match.group())
 
 
 ###     Timing your code       ###
@@ -186,7 +186,7 @@ comp_file.write('file2.txt', compress_type=zipfile.ZIP_DEFLATED)
 comp_file.close()
 
 zip_obj = zipfile.ZipFile('comp_file.zip',mode='r')
-zip_obj.extractall('extracted_content
+zip_obj.extractall('extracted_content')
 import shutil
 import os
 dir_to_zip = os.getcwd() + '\extracted_content'
